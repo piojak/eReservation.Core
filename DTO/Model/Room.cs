@@ -1,11 +1,12 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace DTO.Model
 {
     public class Room
     {
 
-            [Key]
+        [Key]
         public int Id { get; set; }
         
     }
