@@ -1,7 +1,7 @@
 ﻿$bg-color: #333;
 $font-color: #fff;
 $primary-color: #008ed6;
-$dark-overlay: rgba(0,0,0,0.7);
+$dark-overlay: rgba(0,0,0,0.5);
 $icon-size: 30px;
 
 body {
@@ -9,14 +9,7 @@ body {
     padding-bottom: 20px;
     background: $bg-color;
     color: $font-color;
-
-    .fa {
-        color: $primary-color;
-        background: #fff;
-        padding: 4px;
-        border-radius: 5px;
-        font-size: $icon-size;
-    }
+    overflow-x: hidden;
 }
 
 .background {
@@ -33,33 +26,22 @@ body {
     }
 }
 
+.fa {
+    color: $primary-color;
+    background: #fff;
+    padding: 4px;
+    border-radius: 5px;
+    font-size: $icon-size;
+}
+
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
-
-#explore-section, #share-section {
-    .fa {
-        color: #fff;
-        background: #333;
-        padding: 4px;
-        border-radius: 5px;
-        font-size: $icon-size;
-    }
-}
-
-#create-section {
-    .fa {
-        color: $primary-color;
-        background: #fff;
-        padding: 4px;
-        border-radius: 5px;
-        font-size: $icon-size;
-    }
 }
 
 .navbar {
     border-bottom: $primary-color 3px solid;
     opacity: 0.8;
 }
+
 

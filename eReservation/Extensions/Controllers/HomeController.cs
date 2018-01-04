@@ -17,15 +17,11 @@ namespace eReservation.Controllers
 
         public IActionResult About()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
-        public IActionResult Contact()
+        public IActionResult Reserve()
         {
-            ViewData["Message"] = "Your contact page.";
-
             return View();
         }
 
