@@ -1,7 +1,123 @@
 ﻿@{
-    ViewData["Title"] = "About";
+    ViewData["Title"] = "O nas";
+    ViewData["SubTitle"] = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque, saepe.";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+@await Html.PartialAsync("_PageHeader")
 
-<p>Use this area to provide additional information.</p>
+<!-- ABOUT SECTION -->
+<section id="about" class="py-3">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h1>Czym się zajmujemy</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sequi necessitatibus deleniti accusamus provident dignissimos numquam fuga nulla quia voluptatibus, dolore voluptate excepturi accusantium dolores temporibus fugit, voluptas velit omnis!</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum sequi necessitatibus deleniti accusamus provident dignissimos numquam fuga nulla quia voluptatibus, dolore voluptate excepturi accusantium dolores temporibus fugit, voluptas velit omnis!</p>
+            </div>
+            <div class="col-md-6">
+                <img src="http://lorempixel.com/400/400/business/8" alt="" class="about-img img-fluid rounded-circle d-none d-md-block">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ICON BOXES -->
+<section id="icon-boxes" class="p-5">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card bg-danger text-center text-white">
+                    <div class="card-body">
+                        <i class="fa fa-building"></i>
+                        <h3>Budowanie Stron</h3>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-center text-white">
+                    <div class="card-body">
+                        <i class="fa fa-bullhorn"></i>
+                        <h3>Marketing</h3>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-center text-white">
+                    <div class="card-body">
+                        <i class="fa fa-comments"></i>
+                        <h3>Komunikacja</h3>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-md-4">
+                <div class="card bg-danger text-center text-white">
+                    <div class="card-body">
+                        <i class="fa fa-clock-o"></i>
+                        <h3>Raportowanie czasu</h3>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-center text-white">
+                    <div class="card-body">
+                        <i class="fa fa-cc"></i>
+                        <h3>Contact Center</h3>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto.
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card bg-danger text-center text-white">
+                    <div class="card-body">
+                        <i class="fa fa-coffee"></i>
+                        <h3>Outsorcing</h3>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, architecto.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center">
+                <button class="btn btn-outline-danger btn-lg" data-toggle="modal" data-target="#contactModal"><i class="fa fa-envelope"></i><p>Skontaktuj się z nami</p></button>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--------------- CONTACT MODAL --------------- -->
+<div class="modal fade text-dark" id="contactModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="contactModalTitle">Wyślij nam wiadomość</h5>
+                <button class="close" data-dismiss="modal"><span>&times;</span></button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label for="name">Nazwisko</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Wiadomość</label>
+                        <textarea class="form-control"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-danger btn-block">Prześlij</button>
+            </div>
+        </div>
+    </div>
+</div>
