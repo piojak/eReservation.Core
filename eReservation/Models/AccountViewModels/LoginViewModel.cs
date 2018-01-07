@@ -8,15 +8,15 @@ namespace eReservation.Models.AccountViewModels
 {
     public class LoginViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Email jest wymagany")]
+        [EmailAddress(ErrorMessage = "Adres jest nieprawidłowy")]
         public string Email { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Musisz podać hasło")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        [Display(Name = "Remember me?")]
+        [Display(Name = "Zapamiętaj mnie?")]
         public bool RememberMe { get; set; }
     }
 }

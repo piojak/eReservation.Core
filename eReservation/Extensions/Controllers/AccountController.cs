@@ -78,7 +78,7 @@ namespace eReservation.Controllers
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Login nieprawidłowy.");
                     return View(model);
                 }
             }
@@ -138,7 +138,7 @@ namespace eReservation.Controllers
             else
             {
                 _logger.LogWarning("Invalid authenticator code entered for user with ID {UserId}.", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid authenticator code.");
+                ModelState.AddModelError(string.Empty, "Nieprawidłowy kod autentykacyjny.");
                 return View();
             }
         }
@@ -192,7 +192,7 @@ namespace eReservation.Controllers
             else
             {
                 _logger.LogWarning("Invalid recovery code entered for user with ID {UserId}", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid recovery code entered.");
+                ModelState.AddModelError(string.Empty, "Kod odzyskiwania jest nieprawidłowy.");
                 return View();
             }
         }
@@ -364,16 +364,16 @@ namespace eReservation.Controllers
                 if (user == null || !(await _userManager.IsEmailConfirmedAsync(user)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
-                    return RedirectToAction(nameof(ForgotPasswordConfirmation));
+                    return RedirectToAction(nameof(ForgotPasswordConfirmation), true);
                 }
 
                 // For more information on how to enable account confirmation and password reset please
                 // visit https://go.microsoft.com/fwlink/?LinkID=532713
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
-                await _emailSender.SendEmailAsync(model.Email, "Reset Password",
-                   $"Please reset your password by clicking here: <a href='{callbackUrl}'>link</a>");
-                return RedirectToAction(nameof(ForgotPasswordConfirmation));
+                await _emailSender.SendEmailAsync(model.Email, "Resetowanie hasła",
+                   $"Aby zresetować swoje hasło w serwisie eReservation kliknij w link: <a href='{callbackUrl}'>link</a>");
+                return RedirectToAction(nameof(ForgotPasswordConfirmation), true);
             }
 
             // If we got this far, something failed, redisplay form
@@ -382,9 +382,9 @@ namespace eReservation.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult ForgotPasswordConfirmation()
+        public IActionResult ForgotPasswordConfirmation(bool sucess = false)
         {
-            return View();
+            return View(sucess);
         }
 
         [HttpGet]

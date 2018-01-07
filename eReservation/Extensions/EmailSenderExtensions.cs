@@ -11,8 +11,8 @@ namespace eReservation.Services
     {
         public static Task SendEmailConfirmationAsync(this IEmailSender emailSender, string email, string link)
         {
-            return emailSender.SendEmailAsync(email, "Confirm your email",
-                $"Please confirm your account by clicking this link: <a href='{HtmlEncoder.Default.Encode(link)}'>link</a>");
+            return emailSender.SendEmailAsync(email, "Potwierdü swÛj email",
+                $"Potwierdü swoje konto w serwisie eResrvation klikajπc na poniøszy link: <a href='{HtmlEncoder.Default.Encode(link)}'>link</a>");
         }
     }
 }

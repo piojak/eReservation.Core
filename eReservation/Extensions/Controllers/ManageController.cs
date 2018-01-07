@@ -125,7 +125,7 @@ namespace eReservation.Controllers
             var email = user.Email;
             await _emailSender.SendEmailConfirmationAsync(email, callbackUrl);
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "Mail weryfikacyjny został wysłany. Sprawź pocztę.";
             return RedirectToAction(nameof(Index));
         }
 

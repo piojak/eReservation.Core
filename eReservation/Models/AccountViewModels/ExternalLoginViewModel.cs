@@ -8,8 +8,8 @@ namespace eReservation.Models.AccountViewModels
 {
     public class ExternalLoginViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Email jest wymagany")]
+        [EmailAddress(ErrorMessage = "Adres jest nieprawid³owy")]
         public string Email { get; set; }
     }
 }

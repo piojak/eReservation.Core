@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace eReservation.Services
@@ -11,7 +13,38 @@ namespace eReservation.Services
     {
         public Task SendEmailAsync(string email, string subject, string message)
         {
-            return Task.CompletedTask;
+           // return Task.CompletedTask;
+            return SendByGmail(email, subject, message);
+        }
+
+        private async Task<bool> SendByGmail(string email, string subject, string body)
+        {
+            try
+            { 
+            var fromAddress = new MailAddress("ereservation111@gmail.com", "eReservation");
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential("ereservation111@gmail.com", "ereservation123")
+            };
+            using (var message = new MailMessage(fromAddress, new MailAddress(email))
+            {
+                Subject = subject,
+                Body = body
+            })
+            {
+                smtp.Send(message);
+                return true;
+            }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
         }
     }
 }

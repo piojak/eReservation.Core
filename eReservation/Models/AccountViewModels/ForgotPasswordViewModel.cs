@@ -8,8 +8,8 @@ namespace eReservation.Models.AccountViewModels
 {
     public class ForgotPasswordViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Email jest wymagany")]
+        [EmailAddress(ErrorMessage = "Adres jest nieprawidłowy")]
         public string Email { get; set; }
     }
 }

@@ -1,24 +1,34 @@
 ﻿@model LoginWithRecoveryCodeViewModel
 @{
     ViewData["Title"] = "Weryfikacja kodu odzyskiwania";
+    ViewData["SubTitle"] = "Wybrałeś logowanie przez kod odzyskiwania. To logowanie nie będzie zapamiętane dopóki nie wprowadzisz identyfikatora z aplikacji podczas logowania lub wyłączysz podwójną weryfikację i zalogujesz się ponownie.";
 }
 
-<h2>@ViewData["Title"]</h2>
-<hr />
-<p>
-    Wybrałeś logowanie przez kod odzyskiwania. To logowanie nie będzie zapamiętane dopóki nie wprowadzisz
-    identyfikatora z aplikacji podczas logowania lub wyłączysz podwójną weryfikację i zalogujesz się ponownie.
-</p>
-<div class="row">
-    <div class="col-md-4">
-        <form method="post">
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <input asp-for="RecoveryCode" class="form-control" autocomplete="off" placeholder="kod odzyskiwania" />
-                <span asp-validation-for="RecoveryCode" class="text-danger"></span>
+@await Html.PartialAsync("_PageHeader")
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Weryfikacja kodu odzyskiwania</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <form method="post">
+                                <div asp-validation-summary="All" class="text-danger"></div>
+                                <div class="form-group">
+                                    <input asp-for="RecoveryCode" class="form-control" autocomplete="off" placeholder="kod odzyskiwania" />
+                                    <span asp-validation-for="RecoveryCode" class="text-danger"></span>
+                                </div>
+                                <button type="submit" class="btn btn-default">Prześlij</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <button type="submit" class="btn btn-default">Prześlij</button>
-        </form>
+        </div>
     </div>
 </div>
 

@@ -8,9 +8,9 @@ namespace eReservation.Models.AccountViewModels
 {
     public class LoginWithRecoveryCodeViewModel
     {
-            [Required]
+            [Required(ErrorMessage = "Kod jest wymagany")]
             [DataType(DataType.Text)]
-            [Display(Name = "Recovery Code")]
+            [Display(Name = "Ko odzyskiwania")]
             public string RecoveryCode { get; set; }
     }
 }

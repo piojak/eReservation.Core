@@ -1,58 +1,72 @@
 ﻿@model RegisterViewModel
 @{
     ViewData["Title"] = "Nowy użytkownik";
+    ViewData["SubTitle"] = "Załóż darmowe konto i już dziś rezerwuj salę";
 }
-<div class="row">
-    <div class="col-lg-8 d-none d-lg-block">
-        <h1 class="display-4">Załóż <strong>darmowe konto</strong> i już dziś rezerwuj <strong>salę</strong></h1>
-        <div class="d-flex flex-row">
-            <div class="p-4 align-self-start">
-                <i class="fa fa-check"></i>
-            </div>
-            <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, architecto, quaerat. Quis cum eius itaque ipsa magni quam, illo molestias
-            </div>
-        </div>
 
-        <div class="d-flex flex-row">
-            <div class="p-4 align-self-start">
-                <i class="fa fa-check"></i>
-            </div>
-            <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, architecto, quaerat. Quis cum eius itaque ipsa magni quam, illo molestias
-            </div>
-        </div>
+@await Html.PartialAsync("_PageHeader")
 
-        <div class="d-flex flex-row">
-            <div class="p-4 align-self-start">
-                <i class="fa fa-check"></i>
-            </div>
-            <div class="p-4 align-self-end">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, architecto, quaerat. Quis cum eius itaque ipsa magni quam, illo molestias
+<div class="container">
+    <div class="row py-5">
+        <div class="col-lg-8 d-none d-lg-block">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Załóż <strong>darmowe konto</strong> i już dziś rezerwuj <strong>salę</strong></h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-flex flex-row">
+                        <div class="p-4 align-self-start">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="p-4 align-self-end">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, architecto, quaerat. Quis cum eius itaque ipsa magni quam, illo molestias
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <div class="p-4 align-self-start">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="p-4 align-self-end">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, architecto, quaerat. Quis cum eius itaque ipsa magni quam, illo molestias
+                        </div>
+                    </div>
+
+                    <div class="d-flex flex-row">
+                        <div class="p-4 align-self-start">
+                            <i class="fa fa-check"></i>
+                        </div>
+                        <div class="p-4 align-self-end">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas, architecto, quaerat. Quis cum eius itaque ipsa magni quam, illo molestias
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="col-lg-4">
-        <div class="card bg-primary text-center card-form">
-            <div class="card-body">
-                <h3>Zapisz się już dziś</h3>
-                <p>Wypełnij formularz by się zarejestrować</p>
-                <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+        <div class="col-lg-4">
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Zapisz się już dziś</h3>
+                </div>
+                <div class="card-body">
+                    <p>Wypełnij formularz by się zarejestrować</p>
                     <div asp-validation-summary="All" class="text-danger"></div>
-                    <div class="form-group">
-                        <input asp-for="Email" class="form-control" placeholder="Mail"/>
-                        <span asp-validation-for="Email" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input asp-for="Password" class="form-control" placeholder="Hasło"/>
-                        <span asp-validation-for="Password" class="text-danger"></span>
-                    </div>
-                    <div class="form-group">
-                        <input asp-for="ConfirmPassword" class="form-control" placeholder="Potwierdź hasło"/>
-                        <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
-                    </div>
-                    <button type="submit" class="btn btn-outline-light btn-block">Prześlij</button>
-                </form>
+                    <form asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post">
+                        <div class="form-group">
+                            <input asp-for="Email" class="form-control" placeholder="Mail" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="Password" class="form-control" placeholder="Hasło" />
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input asp-for="ConfirmPassword" class="form-control" placeholder="Potwierdź hasło" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <button type="submit" class="btn btn-outline-primary btn-block">Prześlij</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
