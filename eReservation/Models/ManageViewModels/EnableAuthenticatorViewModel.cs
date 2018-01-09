@@ -10,9 +10,9 @@ namespace eReservation.Models.ManageViewModels
     public class EnableAuthenticatorViewModel
     {
             [Required]
-            [StringLength(7, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(7, ErrorMessage = "{0} musi mieć minimum {2} oraz max {1} znaków.", MinimumLength = 6)]
             [DataType(DataType.Text)]
-            [Display(Name = "Verification Code")]
+            [Display(Name = "Kod Weryfikacyjny")]
             public string Code { get; set; }
 
             [ReadOnly(true)]

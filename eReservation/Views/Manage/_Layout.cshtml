@@ -1,19 +1,16 @@
 ﻿@{
     Layout = "/Views/Shared/_Layout.cshtml";
+    ViewData["SubTitle"] = "Zarządzaj swoim kontem";
 }
 
-<div class="page-container">
-    <div class="row">
-        <div class="col text-center">
-            <h1 class="display-4 py-2">Zarządzaj swoim kontem</h1>
-        </div>
-    </div>
-    <hr />
-    <div class="row">
-        <div class="col-md-3">
+@await Html.PartialAsync("_PageHeader")
+
+<div class="container">
+    <div class="row py-5">
+        <div class="col-md-4 pb-2">
             @await Html.PartialAsync("_ManageNav")
         </div>
-        <div class="col-md-9">
+        <div class="col-md-8">
             @RenderBody()
         </div>
     </div>
