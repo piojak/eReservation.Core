@@ -14,7 +14,7 @@ namespace eReservation.Services
         public Task SendEmailAsync(string email, string subject, string message)
         {
            // return Task.CompletedTask;
-            return SendByGmail(email, subject, message);
+            return Task.Run(() => SendByGmail(email, subject, message));
         }
 
         private async Task<bool> SendByGmail(string email, string subject, string body)
@@ -37,7 +37,7 @@ namespace eReservation.Services
                 Body = body
             })
             {
-                smtp.Send(message);
+                await smtp.SendMailAsync(message);
                 return true;
             }
             }
