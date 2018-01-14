@@ -1,0 +1,37 @@
+﻿@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@model List<DTO.Models.Room>
+
+@{
+    ViewData["Title"] = "Rezerwuj";
+    ViewData["SubTitle"] = "Już dziś stwórz niezapomniane spotkanie w zarezerwowanej sali";
+}
+@await Html.PartialAsync("_PageHeader")
+
+@if (SignInManager.IsSignedIn(User))
+{<div class="container">
+        <div class="row py-5">
+            @{
+                foreach (var room in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="card">
+                            <img class="card-img-top img-fluid" alt="" source="@room.ImageUrl" /> @*image url*@
+
+                            <div class="card-body">
+                                <h4 class="card-title">@room.Name</h4>
+                                <small class="text-muted">@room.Location</small>
+                                <hr>
+                                <p class="card-text">@room.Caption</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+}
+else
+{
+    @await Html.PartialAsync("_ReserveUnloggedPartial")
+}

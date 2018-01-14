@@ -12,6 +12,10 @@ namespace DTO
             : base(options)
         { }
 
+        public DataContext()
+            : base()
+        { }
+
         public DbSet<Room> Rooms { get; set; }
     }
 }

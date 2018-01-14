@@ -29,8 +29,8 @@
             <button class="navbar-toggler" data-toggle="collapse" data-target="#navNavbar"><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Start</a></li>
-                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Reserve">Rezerwuj</a></li>
+                    <li class="nav-item @*active*@"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Start</a></li>
+                    <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Reservation" asp-action="Reserve">Rezerwuj</a></li>
                     <li class="nav-item"><a class="nav-link" asp-area="" asp-controller="Home" asp-action="About">O nas</a></li>
                     @await Html.PartialAsync("_LoginPartial")
                 </ul>

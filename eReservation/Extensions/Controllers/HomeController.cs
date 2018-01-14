@@ -21,12 +21,6 @@ namespace eReservation.Controllers
             return View();
         }
 
-        public IActionResult Reserve()
-        {
-            var asd = new List<Room>() { new Room() { Id = 1, Name = "Pokój nr 1" }, new Room() { Id = 2, Name = "Pokój nr 2" }, new Room() { Id = 3, Name = "Pokój nr 3" } };
-            return View(asd);
-        }
-
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
